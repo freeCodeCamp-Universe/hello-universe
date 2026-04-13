@@ -16,23 +16,10 @@ You need an R2 API token scoped to the `gxy-static-1` bucket.
 2. Create API Token: **Object Read & Write**, bucket `gxy-static-1`
 3. Save the Access Key ID, Secret Access Key, and Endpoint URL
 
-Then pick one of:
-
-### Environment Variables (CI or one-off)
-
 ```sh
 cp .env.example .env
 # Fill in the three values
 source .env
-```
-
-### rclone Remote (persistent)
-
-```sh
-rclone config
-# Name: gxy-static, Type: s3, Provider: Cloudflare
-# Paste Access Key ID, Secret Access Key, Endpoint
-# Accept defaults for everything else
 ```
 
 ## Development
