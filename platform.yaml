@@ -1,8 +1,15 @@
 name: hello-world
+owner: team-platform
 stack: static
+
 domain:
   production: hello-world.freecode.camp
   preview: preview.hello-world.freecode.camp
+
+environments:
+  preview: dev
+  production: main
+
 static:
   output_dir: dist
   bucket: gxy-static-1
