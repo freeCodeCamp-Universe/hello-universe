@@ -3,6 +3,7 @@
 # The CLI falls back to this when S3_* env vars are not set.
 
 [gxy-static]
+# Must match static.rclone_remote in platform.yaml
 type = s3
 provider = Cloudflare
 access_key_id = your-r2-access-key-id

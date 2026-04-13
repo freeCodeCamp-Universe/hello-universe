@@ -1,4 +1,4 @@
-name: hello-world
+name: hello-world.freecode.camp
 owner: team-platform
 stack: static
 
@@ -13,5 +13,5 @@ environments:
 static:
   output_dir: dist
   bucket: gxy-static-1
-  rclone_remote: r2-gxy
+  rclone_remote: gxy-static
   region: auto
