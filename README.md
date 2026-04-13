@@ -4,13 +4,12 @@ Test constellation for validating the Universe static deploy pipeline.
 
 ## Prerequisites
 
-- Node 20+
-- [universe-cli](../universe-cli) built (`npx tsup` in that repo)
+- `universe` CLI binary ([Install](https://github.com/freeCodeCamp-Universe/universe-cli#install))
 - R2 credentials (see Setup below)
 
 ## Setup
 
-You need an R2 API token scoped to the `gxy-static-1` bucket.
+Get an R2 API token from the platform team, or create one:
 
 1. Open [Cloudflare Dashboard](https://dash.cloudflare.com) > R2 Object Storage > API Tokens
 2. Create API Token: **Object Read & Write**, bucket `gxy-static-1`
@@ -33,7 +32,7 @@ npm run dev
 
 ```sh
 npm run build
-node ../universe-cli/dist/index.js static deploy
+universe static deploy
 ```
 
 This uploads `dist/` to R2 and sets the preview alias. The deploy ID is printed on success.
@@ -41,7 +40,7 @@ This uploads `dist/` to R2 and sets the preview alias. The deploy ID is printed 
 ## Go Live
 
 ```sh
-node ../universe-cli/dist/index.js static promote
+universe static promote
 ```
 
 Promotes the current preview to production. The site goes live at https://hello-world.freecode.camp within 5 minutes.
@@ -49,7 +48,7 @@ Promotes the current preview to production. The site goes live at https://hello-
 ## Rollback
 
 ```sh
-node ../universe-cli/dist/index.js static rollback --confirm
+universe static rollback --confirm
 ```
 
 Reverts production to the previous deploy.

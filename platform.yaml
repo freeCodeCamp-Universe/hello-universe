@@ -1,17 +1,5 @@
 name: hello-world.freecode.camp
-owner: team-platform
 stack: static
-
 domain:
   production: hello-world.freecode.camp
   preview: preview.hello-world.freecode.camp
-
-environments:
-  preview: dev
-  production: main
-
-static:
-  output_dir: dist
-  bucket: gxy-static-1
-  rclone_remote: gxy-static
-  region: auto
