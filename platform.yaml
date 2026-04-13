@@ -1,0 +1,10 @@
+name: hello-world
+stack: static
+domain:
+  production: hello-world.freecode.camp
+  preview: preview.hello-world.freecode.camp
+static:
+  output_dir: dist
+  bucket: gxy-static-1
+  rclone_remote: gxy-static
+  region: auto

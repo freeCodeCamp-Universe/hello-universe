@@ -1,0 +1,11 @@
+# rclone remote for gxy-static R2 bucket
+# Copy to ~/.config/rclone/rclone.conf (or merge with existing)
+# The CLI falls back to this when S3_* env vars are not set.
+
+[gxy-static]
+type = s3
+provider = Cloudflare
+access_key_id = your-r2-access-key-id
+secret_access_key = your-r2-secret-access-key
+endpoint = https://your-account-id.r2.cloudflarestorage.com
+acl = private
