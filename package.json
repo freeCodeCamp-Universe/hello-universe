@@ -1,19 +1,17 @@
 {
-  "name": "hello-world",
+  "name": "hello-universe",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Framework-free static starter for the Universe CLI",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "pnpm exec vite",
+    "build": "pnpm exec vite build",
+    "preview": "pnpm exec vite preview"
   },
-  "keywords": [],
   "author": "Mrugesh Mohapatra <noreply@mrugesh.dev> (https://mrugesh.dev/)",
   "license": "ISC",
   "type": "module",
-  "private": "true",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
   "devDependencies": {
     "typescript": "^6.0.2",
     "vite": "^8.0.8"
