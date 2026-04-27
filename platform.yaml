@@ -1,10 +1,13 @@
-name: hello-universe.freecode.camp
-stack: static
-domain:
-  production: hello-universe.freecode.camp
-  preview: preview.hello-universe.freecode.camp
-static:
-  output_dir: dist
-  bucket: gxy-static-1
-  rclone_remote: gxy-static
-  region: auto
+# platform.yaml v2 — universe-cli ≥0.4.0 contract.
+# Schema: ~/DEV/fCC-U/universe-cli/src/lib/platform-yaml.schema.ts
+site: hello-universe
+build:
+  command: pnpm build
+  output: dist
+deploy:
+  preview: true
+  ignore:
+    - "*.map"
+    - "node_modules/**"
+    - ".git/**"
+    - ".env*"
