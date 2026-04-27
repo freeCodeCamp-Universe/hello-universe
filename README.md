@@ -18,23 +18,6 @@ This repository is meant to be copied and renamed when a freeCodeCamp team needs
 - Platform maintainers who need a concrete sample for the shipped static CLI contract
 - AI agents that need a safe starter shape for cloning this repo into a new project
 
-## Current Platform Config
-
-```yaml
-name: hello-universe.freecode.camp
-stack: static
-domain:
-  production: hello-universe.freecode.camp
-  preview: preview.hello-universe.freecode.camp
-static:
-  output_dir: dist
-  bucket: gxy-static-1
-  rclone_remote: gxy-static
-  region: auto
-```
-
-The shipped CLI supports the `static` block above today. Keep sample docs aligned with `universe-cli`, not only with broader future-state Universe docs.
-
 ## Template Shape
 
 ```text
@@ -68,23 +51,6 @@ The shipped CLI supports the `static` block above today. Keep sample docs aligne
 ## Prerequisites
 
 - `universe` CLI binary or npm install: <https://github.com/freeCodeCamp-Universe/universe-cli#install>
-- R2 credentials from the platform team
-
-## Credentials
-
-Create `.env` from `.env.example` and load it before running CLI commands:
-
-```sh
-cp .env.example .env
-source .env
-```
-
-Current credential resolution order:
-
-1. `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, `S3_ENDPOINT`, optional `S3_REGION`
-2. `rclone` remote matching `static.rclone_remote`
-
-For staff workflows, environment variables are the expected path. The `rclone` fallback exists mainly for platform-team and automation scenarios.
 
 ## Development
 
@@ -102,76 +68,3 @@ pnpm build
 The sample uses Vite multi-page output and writes files to `dist/`.
 
 That makes the repo easy to inspect: what you read in the source tree is close to what ends up in the uploaded static bundle.
-
-## Shipped CLI Commands
-
-```sh
-universe static deploy
-universe static deploy --output-dir dist
-universe static deploy --force
-universe static deploy --json
-
-universe static promote
-universe static promote <deploy-id>
-universe static promote --json
-
-universe static rollback --confirm
-universe static rollback --confirm --json
-```
-
-## Near-Term Commands
-
-These are worth planning around, but they are not the shipped contract yet:
-
-- `universe static init`
-- `universe static validate`
-- `universe static list`
-- `universe static status`
-- `universe static cleanup`
-- `universe static delete-site`
-- `universe static sync` (optional)
-
-## Deploy Flow
-
-```sh
-pnpm build
-universe static deploy
-```
-
-This uploads `dist/` as an immutable snapshot and moves the preview alias.
-
-The intended workflow is simple: ship a preview for review, then promote the exact deploy that passed review.
-
-To go live:
-
-```sh
-universe static promote
-```
-
-To roll back production:
-
-```sh
-universe static rollback --confirm
-```
-
-## Helpful Overrides
-
-Environment overrides supported by the shipped CLI:
-
-- `UNIVERSE_STATIC_OUTPUT_DIR`
-- `UNIVERSE_STATIC_BUCKET`
-- `UNIVERSE_STATIC_RCLONE_REMOTE`
-- `UNIVERSE_STATIC_REGION`
-
-Resolution order is:
-
-1. CLI flags
-2. Environment variables
-3. `platform.yaml`
-4. Defaults
-
-## Agent Guidance
-
-Agents should start with `AGENTS.md`, which points to `docs/agent-template-guide.md`.
-
-That guide explains how to use this repository as a template for new projects rather than treating it as an app that should keep growing by default.

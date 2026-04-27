@@ -1,5 +1,3 @@
-# platform.yaml v2 — universe-cli ≥0.4.0 contract.
-# Schema: ~/DEV/fCC-U/universe-cli/src/lib/platform-yaml.schema.ts
 site: hello-universe
 build:
   command: pnpm build
